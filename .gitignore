@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+# Temporary files
+*.tmp
+
+# CMake build directory
+build/
+
+# IDE-specific files (e.g., Visual Studio Code)
+.vscode/
+
+# Compiled files
+FastContacts
