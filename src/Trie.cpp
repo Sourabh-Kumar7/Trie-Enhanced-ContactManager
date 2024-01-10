@@ -30,7 +30,7 @@ Trie::TrieNode::TrieNode() {
     isEndOfWord = false;
 }
 
-void Trie::insert(const std::string& word, const std::string& id) {
+void Trie::insert(const std::string& word, const std::string& id, const std::string& phoneNumber) {
     TrieNode* current = root;
 
     for (char ch : word) {
@@ -45,6 +45,7 @@ void Trie::insert(const std::string& word, const std::string& id) {
 
     current->isEndOfWord = true;
     current->id = id;
+    current->phoneNumber = phoneNumber;
 }
 
 bool Trie::search(const std::string& word, std::vector<std::string>& results) const {
@@ -98,7 +99,7 @@ void Trie::findAllWordsWithPrefix(const std::string& prefix, std::vector<std::st
 
 void Trie::findAllWordsWithPrefixRecursive(const TrieNode* node, const std::string& currentPrefix, std::vector<std::string>& results) const {
     if (node->isEndOfWord) {
-        results.push_back(currentPrefix);
+        results.push_back(currentPrefix + " " + node->phoneNumber);
     }
 
     for (int i = 0; i < 26; ++i) {

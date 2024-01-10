@@ -9,7 +9,7 @@ public:
     Trie();
     ~Trie();
 
-    void insert(const std::string& word, const std::string& id);
+    void insert(const std::string& word, const std::string& id, const std::string& phoneNumber);
     // bool search(const std::string& word) const;
     bool search(const std::string& word, std::vector<std::string>& results) const;
     void findAllWordsWithPrefix(const std::string& prefix, std::vector<std::string>& results) const;
@@ -19,6 +19,7 @@ private:
         TrieNode* children[26];  // Assuming only lowercase alphabets
         std::string id;          // ID associated with the word
         bool isEndOfWord;
+        std::string phoneNumber;
 
         TrieNode();
     };

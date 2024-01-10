@@ -111,6 +111,7 @@ void ContactManager::addContactToTrie(const Contact& contact) {
     const std::string& name = contact.getName();
     // Use a unique identifier (e.g., ID) for the trie key
     const std::string& contactId = contact.getId();
+    const std::string& contactPhoneNumber = contact.getPhoneNumber();
 
-    contactTrie.insert(name, contactId);
+    contactTrie.insert(name, contactId, contactPhoneNumber);
 }

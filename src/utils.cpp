@@ -64,7 +64,7 @@ void loadContactsFromFile(Trie& contactTrie, std::vector<Contact>& contacts, con
 
                 Contact contact(id, name, phoneNumber);
                 contacts.push_back(contact);
-                contactTrie.insert(name, id);
+                contactTrie.insert(name, id, phoneNumber);
             }
 
             std::cout << "Contacts loaded successfully from " << filename << std::endl;
