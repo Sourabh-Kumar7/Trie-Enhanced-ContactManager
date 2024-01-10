@@ -55,7 +55,6 @@ void ContactManager::addContact() {
     std::cout << "Enter Contact Phone Number: ";
     std::cin >> phoneNumber;
 
-    // Create a new contact with an automatically generated ID
     Contact newContact(name, phoneNumber);
 
     // Add the contact to the trie and vector
@@ -93,11 +92,10 @@ void ContactManager::loadContactsFromFile(const std::string& filename) {
 
         const Json::Value& contactsArray = root["contacts"];
         for (const Json::Value& contactValue : contactsArray) {
-            std::string id = contactValue["id"].asString();
             std::string name = contactValue["name"].asString();
             std::string phoneNumber = contactValue["phone"].asString();
 
-            Contact contact(id, name, phoneNumber);
+            Contact contact(name, phoneNumber);
             contacts.push_back(contact);
             addContactToTrie(contact);
         }
@@ -109,9 +107,7 @@ void ContactManager::loadContactsFromFile(const std::string& filename) {
 void ContactManager::addContactToTrie(const Contact& contact) {
     // Extract the name for simplicity, you can include more details if needed
     const std::string& name = contact.getName();
-    // Use a unique identifier (e.g., ID) for the trie key
-    const std::string& contactId = contact.getId();
     const std::string& contactPhoneNumber = contact.getPhoneNumber();
 
-    contactTrie.insert(name, contactId, contactPhoneNumber);
+    contactTrie.insert(name, contactPhoneNumber);
 }

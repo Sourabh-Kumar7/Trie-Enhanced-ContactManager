@@ -19,7 +19,6 @@ void saveContactsToFile(const Trie& contactTrie, const std::vector<Contact>& con
     Json::Value contactsArray;
     for (const auto& contact : contacts) {
         Json::Value contactValue;
-        contactValue["id"] = contact.getId();
         contactValue["name"] = contact.getName();
         contactValue["phone"] = contact.getPhoneNumber();
         contactsArray.append(contactValue);
@@ -58,13 +57,12 @@ void loadContactsFromFile(Trie& contactTrie, std::vector<Contact>& contacts, con
 
             // Load contacts from the JSON file
             for (const Json::Value& contactValue : contactsArray) {
-                std::string id = contactValue["id"].asString();
                 std::string name = contactValue["name"].asString();
                 std::string phoneNumber = contactValue["phone"].asString();
 
-                Contact contact(id, name, phoneNumber);
+                Contact contact(name, phoneNumber);
                 contacts.push_back(contact);
-                contactTrie.insert(name, id, phoneNumber);
+                contactTrie.insert(name, phoneNumber);
             }
 
             std::cout << "Contacts loaded successfully from " << filename << std::endl;

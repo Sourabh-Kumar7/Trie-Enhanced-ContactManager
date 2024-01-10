@@ -30,7 +30,7 @@ Trie::TrieNode::TrieNode() {
     isEndOfWord = false;
 }
 
-void Trie::insert(const std::string& word, const std::string& id, const std::string& phoneNumber) {
+void Trie::insert(const std::string& word, const std::string& phoneNumber) {
     TrieNode* current = root;
 
     for (char ch : word) {
@@ -44,7 +44,6 @@ void Trie::insert(const std::string& word, const std::string& id, const std::str
     }
 
     current->isEndOfWord = true;
-    current->id = id;
     current->phoneNumber = phoneNumber;
 }
 
