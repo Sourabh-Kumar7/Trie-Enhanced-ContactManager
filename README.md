@@ -22,14 +22,14 @@ To run FastContacts, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/FastContacts.git
+   git clone https://github.com/Sourabh-Kumar7/FastContacts.git
    cd FastContacts
 2. Build the project:
    ```bash
    mkdir build
    cd build
    cmake ..
-   make//github.com/your-username/FastContacts.git
+   make//github.com/Sourabh-Kumar7/FastContacts.git
    cd FastContacts
 2. Run FastContacts:
    ```bash
